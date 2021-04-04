@@ -26,14 +26,14 @@ define(function(require, exports) {
 				msrc = $dom.attr('data-original');
 			}
 			var width = 0,height = 0;
-			var link  = imageUrl(path);
+			var link  = imageUrl(path,true);
 			if(!msrc){
 				msrc = link;
 			}
 			itemsArr.push({
 				src:link,
 				msrc:msrc,
-				trueImage:imageUrl(path,true),
+				trueImage:link,
 				title:core.pathThis(urlDecode(path)),
 				w:width,h:height,
 				$dom:$dom?$dom:false
@@ -123,6 +123,7 @@ define(function(require, exports) {
 				bgOpacity:0.8,
 				maxSpreadZoom:5,
 				closeOnScroll:false,
+				preload:[1,8],
 		
 				shareEl: true,
 				shareButtons: [
