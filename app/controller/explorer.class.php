@@ -365,7 +365,7 @@ class explorer extends Controller{
 	private function _treeFav(){
 		$checkFile = ($this->in['app'] == 'editor'?true:false);
 		$favData=new FileCache(USER.'data/fav.php');
-		$favList = $favData->get();
+		$favList = array_reverse($favData->get());
 		$fav = array();
 		$GLOBALS['kodPathAuthCheck'] = true;//组权限发生变更。导致访问groupPath 无权限退出问题
 		foreach($favList as $key => $val){
