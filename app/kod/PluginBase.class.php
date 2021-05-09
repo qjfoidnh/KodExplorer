@@ -50,7 +50,7 @@ class PluginBase{
 		if(!is_array($systemConfig['pluginList'])){
 			$systemConfig['pluginList'] = array();
 		}
-		if(is_array($systemConfig['pluginList'][$name])){
+		if(is_array($systemConfig['pluginList'][$id])){ 
 			$systemConfig['pluginList'][$id]['regiest'] = $array;
 		}else{
 			$systemConfig['pluginList'][$id] = array(
@@ -257,10 +257,11 @@ class PluginBase{
 		$lang = I18n::getType();
 		$array = array();
 		if(file_exists($path.$lang.'.php')){
-			$array = include_once($path.$lang.'.php');
+			$array = include($path.$lang.'.php');
 		}else if(file_exists($path.$default.'.php')){
-			$array = include_once($path.$default.'.php');
+			$array = include($path.$default.'.php');
 		}
+		if(!is_array($array)) return array();
 		if(count($array) > 0){
 			I18n::set($array);
 		}
