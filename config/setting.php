@@ -10,8 +10,8 @@
 $config['settings'] = array(
 	'downloadUrlTime'	=> 0,			 //下载地址生效时间，按秒计算，0代表不限制
 	'apiLoginTonken'	=> '',			 //设定则认为开启服务端api通信登陆，同时作为加密密匙
-	'updloadChunkSize'	=> 1024*1024*0.4,//0.4M;分片上传大小设定;需要小于php.ini上传限制的大小
-	'updloadThreads'	=> 10,			 //上传并发数;部分低配服务器上传失败则将此设置为1
+	'updloadChunkSize'	=> 1024*1024*80,//80M;分片上传大小设定;需要小于php.ini上传限制的大小
+	'updloadThreads'	=> 4,			 //上传并发数;部分低配服务器上传失败则将此设置为1
 	'updloadBindary'	=> 0,			 //1:以二进制方式上传;后端服务器以php://input接收;0则为传统方式上传
 	'uploadCheckChunk'	=> true,		 //开关断点续传，一个文件上传一半时中断，同一个文件再次上传到同一个位置时会接着之前的进度上传。
 	'paramRewrite'		=> false,		 //开启url 去除? 直接跟参数
