@@ -24,7 +24,7 @@ class fav extends Controller{
 	 * 添加
 	 */
 	public function add() {
-		$name = preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/", " ", strip_tags($this->in['name']));
+		$name = preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/", " ", trim($this->in['name']));
 		$name = htmlspecialchars_decode($name);
 		$path = $this->in['path'];
 		if($this->sql->get($name)){//已存在则先删除再放到最下
