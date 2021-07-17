@@ -123,7 +123,7 @@ define(function(require, exports) {
 				bgOpacity:0.8,
 				maxSpreadZoom:5,
 				closeOnScroll:false,
-				preload:[1,8],
+				preload:[1,12],
 		
 				shareEl: true,
 				shareButtons: [
