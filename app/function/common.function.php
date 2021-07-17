@@ -118,15 +118,21 @@ function mtime(){
 }
 /**
  * 过滤HTML
+ * 
+ * eg: </script><script>alert(1234)</script>
+ * 允许url中字符;
  */
-function clear_html($HTML, $br = true){
-	$HTML = htmlspecialchars(trim($HTML));
-	$HTML = str_replace("\t", ' ', $HTML);
-	if ($br) {
-		return nl2br($HTML);
-	} else {
-		return str_replace("\n", '', $HTML);
-	} 
+function clear_html($html, $br = true){
+	$html = $html === null ? "" : $html;
+	$replace = array('<','>','"',"'");
+	$replaceTo = array('&lt;','&gt;','&quot;','&#39;');
+	return str_replace($replace,$replaceTo,$html);
+}
+function clear_quote($html){
+	$html = $html === null ? "" : $html;
+	$replace = array('"',"'",'</script');
+	$replaceTo = array('\\"',"\\'","<\/script");	
+	return str_ireplace($replace,$replaceTo,$html);
 }
 
 /**
