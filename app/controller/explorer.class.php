@@ -394,7 +394,8 @@ class explorer extends Controller{
 
 			if( $cell['type'] == 'folder' && $cell['ext'] == "" ){
 				$cell['menuType'] = 'menu-tree-folder-fav';
-				$cell['exists']   = intval(file_exists($thePath));
+// 				$cell['exists']   = intval(file_exists($thePath));
+				$cell['exists']   = intval(is_dir($thePath));
 			}
 
 			if(isset($val['type']) && $val['type']!='folder'){//icon优化
@@ -1092,7 +1093,7 @@ class explorer extends Controller{
 			$imageMd5 = md5($image).'_'.$thumbWidth;
 		}
 		$imageThumb = DATA_THUMB.$imageMd5.'.png';
-		if (!file_exists($imageThumb)){//如果拼装成的url不存在则没有生成过
+		if (!is_file($imageThumb)){//如果拼装成的url不存在则没有生成过
 			if (get_path_father($image)==DATA_THUMB){//当前目录则不生成缩略图
 				$imageThumb=$this->path;
 			}else {
@@ -1100,7 +1101,7 @@ class explorer extends Controller{
 				$cm->prorate($imageThumb,$thumbWidth,$thumbWidth);//生成等比例缩略图
 			}
 		}
-		if (!file_exists($imageThumb) || 
+		if (!is_file($imageThumb) || 
 			filesize($imageThumb)<100){//缩略图生成失败则使用原图
 			$imageThumb=$this->path;
 		}
@@ -1285,7 +1286,7 @@ class explorer extends Controller{
 				'mode'		=> '',
 				'isReadable'	=> 1,
 				'isWriteable'	=> 1,
-				'exists'	=> intval(file_exists($thePath)),
+				'exists'	=> intval(file_exists($thePath)),  //这部分只有在收藏栏点开三角时才会去执行，可不做优化
 				'metaInfo'	=> 'tree-fav',
 
 				'path' 		=> $val['path'],
