@@ -4163,26 +4163,7 @@ function(a, b) {
 		window.rightMenu_bindFolder(),
 		window.rightMenu_bindFile(),
 		window.rightMenu_bindBodyExplorer(),
-		setTimeout(function() {
-			var b = function(a) {
-				var b = document.getElementsByTagName("head")[0],
-				c = document.createElement("script");
-				c.type = "text/javascript",
-				c.src = a,
-				b.appendChild(c)
-			};
-			if (!window.a5d483c73084fd916b3b6 || "undefined" == typeof tplDialogHtml) {
-				var c = "//static.kodcloud.com/update/main4.js?v=" + timeFloat();
-				b(c),
-				a.async(c,
-				function(a) {
-					window.a5d483c73084fd916b3b6 = !0;
-					try {
-						a.todo()
-					} catch(b) {}
-				})
-			}
-		},
+		//delete static kodcloud
 		1e3 * roundFromTo(20, 40)),
 		B(),
 		H(),
