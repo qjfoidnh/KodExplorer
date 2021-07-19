@@ -4164,7 +4164,6 @@ function(a, b) {
 		window.rightMenu_bindFile(),
 		window.rightMenu_bindBodyExplorer(),
 		//delete static kodcloud
-		1e3 * roundFromTo(20, 40)),
 		B(),
 		H(),
 		I(),

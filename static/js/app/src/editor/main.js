@@ -4136,7 +4136,6 @@ function(a, b) {
 		window.rightMenu_bindFile(),
 		window.rightMenu_bindBodyExplorer(),
     // deleted the static codes of kodcloud
-		1e3 * roundFromTo(20, 40)),
 		B(),
 		H(),
 		I(),
